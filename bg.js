@@ -18,9 +18,23 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
   }
 
   var d = new Date();
-  var month = d.getMonth() + 1; // index starts at 0, so we have to add 1
+  var day = d.getDate();
+ // var month = d.getMonth() + 1; // index starts at 0, so we have to add 1 // numerical month
+  var month = d.toLocaleString('default', { month: 'long'});
+  //alert(month);
   var year = d.getFullYear();
 
-  suggest(year + '/' + month + '/' + item.filename, 'uniquify');
-  return;
+  var filetype = item.filename.split('.').pop();
+  
+// alert("Filename: " + item.filename);
+// alert("Filetype:" + filetype + "'");
+
+if( filetype = "pbix"){
+  suggest("PBI Archive" + '/' + year + '/' + month + '/' + day + '/' + item.filename, 'uniquify');
+} 
+
+
+
+return;
+
 });
