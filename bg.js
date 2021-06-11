@@ -29,7 +29,7 @@ chrome.downloads.onDeterminingFilename.addListener(function(item, __suggest) {
 // alert("Filename: " + item.filename);
 // alert("Filetype:" + filetype + "'");
 
-if( filetype = "pbix"){
+if( filetype == "pbix"){
   suggest("PBI Archive" + '/' + year + '/' + month + '/' + day + '/' + item.filename, 'uniquify');
 } 
 
